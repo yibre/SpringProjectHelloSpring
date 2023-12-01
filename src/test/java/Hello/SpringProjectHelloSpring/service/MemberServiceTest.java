@@ -2,6 +2,7 @@ package Hello.SpringProjectHelloSpring.service;
 
 import Hello.SpringProjectHelloSpring.domain.Member;
 import Hello.SpringProjectHelloSpring.repository.MemberRepository;
+import Hello.SpringProjectHelloSpring.repository.MemoryMemberRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +12,15 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.*;
 
 class MemberServiceTest {
-    MemberService memberService = new MemberService();
+    MemberService memberService;
+    MemoryMemberRepository memberRepository; // new로 신규 할당하면 테스트때 새로운 repository 객체가 생성되게 됨
+
+    @BeforeEach
+    public void beforeEach() { // memberrepository 할당하기 , 테스트는 독립 시행이므로 이렇게
+        memberRepository = new MemoryMemberRepository();
+        memberService = new MemberService(memberRepository);
+
+    }
 
     @Test
     void 회원가입() {

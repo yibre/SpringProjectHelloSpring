@@ -7,8 +7,7 @@ import Hello.SpringProjectHelloSpring.repository.MemoryMemberRepository;
 import java.util.Optional;
 import java.util.List;
 public class MemberService {
-    private final MemberRepository memberRepository = new
-            MemoryMemberRepository();
+    private final MemberRepository memberRepository = new MemoryMemberRepository();
     /**
      * 회원가입
      */
