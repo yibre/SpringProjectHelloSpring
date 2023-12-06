@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.List;
 
-@Service
+// @Service
 public class MemberService {
     private final MemberRepository memberRepository;
 
-    @Autowired
+    // @Autowired
     public MemberService(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
