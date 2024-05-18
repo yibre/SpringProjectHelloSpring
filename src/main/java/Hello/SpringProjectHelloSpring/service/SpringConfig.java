@@ -1,5 +1,6 @@
 package Hello.SpringProjectHelloSpring.service;
 
+import Hello.SpringProjectHelloSpring.AOP.TimeTraceAOP;
 import Hello.SpringProjectHelloSpring.repository.JdbcMemberRepository;
 // import Hello.SpringProjectHelloSpring.repository.JdbcTemplateMemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,5 +23,11 @@ public class SpringConfig {
     @Bean
     public MemberService memberService() {
         return new MemberService(memberRepository());
+    }
+
+    // TimeTraceAOP가 빈임을 정의해두는게 좋음. 안해도 된다는데 왜 안해도 되는진 이해 못함
+    @Bean
+    public TimeTraceAOP TimeTraceAOP() {
+        return new TimeTraceAOP();
     }
 }
